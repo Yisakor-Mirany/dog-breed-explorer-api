@@ -2,6 +2,7 @@ const loadBreedsBtn = document.getElementById("loadBreedsBtn");
 const breedSelect = document.getElementById("breedSelect");
 const statusMessage = document.getElementById("statusMessage");
 const detailsContent = document.getElementById("detailsContent");
+const dogImage = document.getElementById("dogImage");
 
 let breeds = [];
 
@@ -23,7 +24,7 @@ async function fetchBreeds() {
 
     populateBreeds(breeds);
 
-    statusMessage.textContent = "Breeds loaded successfully";
+    statusMessage.textContent = "Breeds loaded successfully.";
 
   } catch (error) {
 
@@ -53,12 +54,12 @@ function populateBreeds(breedList) {
 
 }
 
-function displayBreedDetails(breedId) {
+async function displayBreedDetails(breedId) {
 
   if (!breedId) {
 
     detailsContent.innerHTML = "<p>No breed selected yet.</p>";
-
+    dogImage.style.display = "none";
     return;
 
   }
@@ -68,7 +69,7 @@ function displayBreedDetails(breedId) {
   if (!breed) {
 
     detailsContent.innerHTML = "<p>Breed not found.</p>";
-
+    dogImage.style.display = "none";
     return;
 
   }
@@ -78,11 +79,35 @@ function displayBreedDetails(breedId) {
   detailsContent.innerHTML = `
     <h3>${attributes.name}</h3>
     <p><strong>Description:</strong> ${attributes.description || "No description available"}</p>
-    <p><strong>Life Span:</strong> ${attributes.life.min || "?"} - ${attributes.life.max || "?"} years</p>
-    <p><strong>Male Weight:</strong> ${attributes.male_weight.min || "?"} - ${attributes.male_weight.max || "?"} lbs</p>
-    <p><strong>Female Weight:</strong> ${attributes.female_weight.min || "?"} - ${attributes.female_weight.max || "?"} lbs</p>
+    <p><strong>Life Span:</strong> ${attributes.life?.min || "?"} - ${attributes.life?.max || "?"} years</p>
+    <p><strong>Male Weight:</strong> ${attributes.male_weight?.min || "?"} - ${attributes.male_weight?.max || "?"} lbs</p>
+    <p><strong>Female Weight:</strong> ${attributes.female_weight?.min || "?"} - ${attributes.female_weight?.max || "?"} lbs</p>
     <p><strong>Hypoallergenic:</strong> ${attributes.hypoallergenic ? "Yes" : "No"}</p>
   `;
+
+  fetchRandomDogImage();
+
+}
+
+async function fetchRandomDogImage() {
+
+  try {
+
+    const response = await fetch("https://dog.ceo/api/breeds/image/random");
+
+    const data = await response.json();
+
+    dogImage.src = data.message;
+
+    dogImage.style.display = "block";
+
+  } catch (error) {
+
+    console.error("Error loading dog image", error);
+
+    dogImage.style.display = "none";
+
+  }
 
 }
 

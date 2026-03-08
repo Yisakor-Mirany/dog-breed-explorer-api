@@ -8,32 +8,37 @@
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <h1>Dog Breed Explorer</h1>
-    <p>Browse dog breeds using the Dog API.</p>
+  <h1>Dog Breed Explorer 🐶</h1>
+  <p>Browse dog breeds and learn about them using the Dog API.</p>
 
-    <button id="loadBreedsBtn">Load Dog Breeds</button>
+  <button id="loadBreedsBtn">Load Dog Breeds</button>
 
-    <div class="dropdown-section">
-      <label for="breedSelect">Select a Dog Breed</label>
-      <select id="breedSelect">
-        <option value="">-- Select a breed --</option>
-      </select>
+  <div class="dropdown-section">
+    <label for="breedSelect">Select a Dog Breed</label>
+    <select id="breedSelect">
+      <option value="">-- Select a breed --</option>
+    </select>
+  </div>
+
+  <p id="statusMessage"></p>
+
+  <div id="breedDetails" class="card">
+
+    <h2>Breed Details</h2>
+
+    <div id="detailsContent">
+      <p>No breed selected yet.</p>
     </div>
 
-    <p id="statusMessage"></p>
-
-    <div id="breedDetails" class="card">
-      <h2>Breed Details</h2>
-      <div id="detailsContent">
-        <p>No breed selected yet.</p>
-      </div>
-    </div>
+    <img id="dogImage" src="" alt="Dog Image">
 
   </div>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

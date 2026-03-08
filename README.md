@@ -1,32 +1,34 @@
 # Dog Breed Explorer
 
-Dog Breed Explorer is a small web application that uses the Dog API to allow users to browse dog breeds and view detailed breed information.
+Dog Breed Explorer is a small web application that uses public APIs to display dog breed information and random dog images.
 
 ## Features
 
-- Fetches dog breeds from a third-party API
-- Displays breeds in a dropdown menu
+- Fetches dog breeds from the Dog API
+- Displays breeds in a dropdown
 - Shows breed details when selected
+- Displays a random dog image
 - Handles API errors gracefully
-- Uses fallback values when some data is missing
 
-## Technologies Used
+## APIs Used
+
+Dog API  
+https://dogapi.dog/api/v2/breeds
+
+Dog CEO API  
+https://dog.ceo/api/breeds/image/random
+
+## Technologies
 
 - HTML
 - CSS
 - JavaScript
 - Fetch API
-- Dog API
-
-## API Used
-
-Dog API  
-https://dogapi.dog/api/v2/breeds
 
 ## How to Run
 
-1. Clone this repository
-git clone https://github.com/Yisakor-Mirany/dog-breed-expolorer-api.git
+1. Clone the repository
+git clone https://github.com/Yisakor-Mirany/dog-breed-explorer-api.git
 
 2. Open the project folder.
 
@@ -36,15 +38,15 @@ git clone https://github.com/Yisakor-Mirany/dog-breed-expolorer-api.git
 
 ### Normal Cases
 
-1. Load breeds successfully
-2. Select a breed and display details
+1. Load dog breeds successfully
+2. Select a breed to view details
 3. Change breed selection and update information
 
 ### Edge Cases
 
 1. No breed selected
-2. API failure
-3. Missing breed data
+2. API request fails
+3. Missing breed data fields
 
 ## Author
 

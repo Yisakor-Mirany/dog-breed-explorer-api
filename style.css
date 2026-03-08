@@ -53,3 +53,10 @@ select {
   margin-top: 15px;
   font-weight: bold;
 }
+
+#dogImage {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+  display: none;
+}
